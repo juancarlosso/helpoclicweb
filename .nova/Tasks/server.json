@@ -1,0 +1,10 @@
+{
+  "actions" : {
+    "run" : {
+      "enabled" : true,
+      "script" : "php artisan serve"
+    }
+  },
+  "openLogOnRun" : "start",
+  "persistent" : true
+}
