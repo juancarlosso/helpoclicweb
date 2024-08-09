@@ -128,10 +128,11 @@ class EstablecimientoController extends Controller
         } else {
             $establecimiento->cuentas()->sync([]);
         }
-    
+        
         // Redirige con un mensaje de éxito
         return redirect()->route('establecimientos.index')->with('success', '¡Establecimiento actualizado!');
     }
+    
     
     
 }

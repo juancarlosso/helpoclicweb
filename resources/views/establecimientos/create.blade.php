@@ -109,8 +109,15 @@
                     <input type="text" class="form-control" id="ciudad" name="ciudad" value="{{ old('ciudad') }}">
                 </div>
             </div>
-            
-
+             <div class="row mb-4">
+                <label for="geolocalizacion" class="col-md-3 form-label">Geolocalización</label>
+                <div class="col-md-9">
+                    <div class="input-group">
+                        <input class="form-control" name="geolocalizacion" id="geolocalizacion" type="text" value="{{ old('geolocalizacion') }}">
+                        <button type="button" class="btn btn-primary input-group-text" id="showMapBtn">Mostrar</button>
+                    </div>
+                </div>
+            </div>
             <div class="mb-0 mt-4 row justify-content-end">
                 <div class="col-md-12">
                     <a href="{{ route('establecimientos.index') }}" class="btn btn-danger"><i class="fa fa-times"></i> Cancelar</a>
@@ -126,5 +133,15 @@
 @section('scripts')
 <script>
     $(".select2").select2();
+
+    document.getElementById('showMapBtn').addEventListener('click', function() {
+            var geolocalizacion = document.getElementById('geolocalizacion').value;
+            if (geolocalizacion) {
+                var url = 'https://www.google.com/maps?q=' + encodeURIComponent(geolocalizacion);
+                window.open(url, '_blank');
+            } else {
+                alert('Por favor, ingrese un código de geolocalización.');
+            }
+        });
 </script>
 @endsection

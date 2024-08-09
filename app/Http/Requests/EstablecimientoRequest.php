@@ -44,6 +44,7 @@ class EstablecimientoRequest extends FormRequest
                 'cuenta_ids.*' => 'exists:cuentas,id',
                 'nombre' => 'required','estado' => 'required|string|size:2',
                 'ciudad' => 'nullable|string|max:255',
+                'geolocalizacion' => 'nullable|string',
             ];
         } else {
             return [
@@ -53,6 +54,7 @@ class EstablecimientoRequest extends FormRequest
                 'nombre' => 'required',
                 'estado' => 'required|string|size:2',
                 'ciudad' => 'nullable|string|max:255',
+                'geolocalizacion' => 'nullable|string',
             ];
         }
     }

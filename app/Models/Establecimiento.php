@@ -17,7 +17,9 @@ class Establecimiento extends Model
         'mostrar_productos',
         'activo',
         'estado',
-        'ciudad'
+        'ciudad',
+        'geolocalizacion',
+
     ];
 
     public function tipo()
