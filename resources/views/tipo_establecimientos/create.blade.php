@@ -36,6 +36,13 @@ Tipo Establecimientos
                 </div>
             </div>
             <hr>
+            <div class="row mb-4">
+                <label for="imagen" class="col-md-3 form-label">Imagen</label>
+                <div class="col-md-9">
+                    <input type="file" class="form-control" id="imagen" name="imagen">
+                </div>
+            </div>
+            
 
             <div class="mb-0 mt-4 row justify-content-end">
                 <div class="col-md-12">

@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\TipoEstablecimientoRequest;
-use App\Models\TipoEstablecimiento;
 use Illuminate\Http\Request;
+use App\Models\TipoEstablecimiento;
+use Illuminate\Support\Facades\Storage;
+use App\Http\Requests\TipoEstablecimientoRequest;
 
 class TipoEstablecimientoController extends Controller
 {
@@ -49,6 +50,12 @@ class TipoEstablecimientoController extends Controller
         $tipo_establecimiento = new TipoEstablecimiento();
         $tipo_establecimiento->nombre = $request->nombre;
         $tipo_establecimiento->activo = $request->activo;
+        if ($request->hasFile('imagen')) {
+            $file = $request->file('imagen');
+            $filename = time() . '_' . $file->getClientOriginalName();
+            $path = $file->storeAs('public/tipo_establecimientos', $filename);
+            $tipo_establecimiento->imagen = $filename;
+        }
         $tipo_establecimiento->save();
 
         return redirect()->route('tipo_establecimientos.index')->with('success', 'el Tipo Establecimiento ha sido creado!');
@@ -92,13 +99,26 @@ class TipoEstablecimientoController extends Controller
     */
     public function update(TipoEstablecimientoRequest $request, $id)
     {
-
         $tipo_establecimiento = TipoEstablecimiento::findOrFail($id);
 
         $tipo_establecimiento->nombre = $request->nombre;
         $tipo_establecimiento->activo = $request->activo;
+
+        if ($request->hasFile('imagen')) {
+            // Eliminar la imagen antigua si existe
+            if ($tipo_establecimiento->imagen) {
+                Storage::delete('public/tipo_establecimientos/' . $tipo_establecimiento->imagen);
+            }
+
+            // Guardar la nueva imagen
+            $file = $request->file('imagen');
+            $filename = time() . '_' . $file->getClientOriginalName();
+            $file->storeAs('public/tipo_establecimientos', $filename);
+            $tipo_establecimiento->imagen = $filename;
+        }
+
         $tipo_establecimiento->save();
 
-        return redirect()->route('tipo_establecimientos.index')->with('success', 'El tipo_establecimiento ha sido modificado!');
+        return redirect()->route('tipo_establecimientos.index')->with('success', 'El tipo de establecimiento ha sido modificado!');
     }
 }

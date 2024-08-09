@@ -25,6 +25,7 @@ class TipoEstablecimientoRequest extends FormRequest
     {
         return [
             'nombre' => '-Nombre-',
+            'imagen' => '-Imagen-',
         ];
     }
 
@@ -35,14 +36,18 @@ class TipoEstablecimientoRequest extends FormRequest
      */
     public function rules()
     {
+        $rules = [
+            'nombre' => 'required|string|max:255',
+            'activo' => 'required|boolean',
+        ];
+
         if ($this->getMethod() == "POST") {
-            return [
-                'nombre' => "required",
-            ];
+            $rules['imagen'] = 'nullable|image|max:2048'; // Máx. 2 MB para la imagen
         } else {
-            return [
-                'nombre' => "required",
-            ];
+            // Si es una actualización, la imagen es opcional pero debe ser válida si se proporciona
+            $rules['imagen'] = 'nullable|image|max:2048';
         }
+
+        return $rules;
     }
 }

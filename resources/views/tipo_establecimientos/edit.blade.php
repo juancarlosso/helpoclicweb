@@ -15,25 +15,39 @@ Tipo Establecimientos
 @section('contenido')
 <div class="card">
     <div class="card-header">
-        <h4 class="card-title">Datos del Tipo de Establecimientos</h4>
+        <h4 class="card-title">Datos del Tipo de Establecimiento</h4>
     </div>
     <div class="card-body">
-        <form class="form-horizontal" method="POST" action="{{route('tipo_establecimientos.update',$tipo_establecimiento->id)}}" enctype="multipart/form-data">
+        <form class="form-horizontal" method="POST" action="{{ route('tipo_establecimientos.update', $tipo_establecimiento->id) }}" enctype="multipart/form-data">
             @csrf
             @method('PUT')
-            <div class=" row mb-4">
+
+            <div class="row mb-4">
                 <label for="nombre" class="col-md-3 form-label">Nombre</label>
                 <div class="col-md-9">
-                    <input type="text" class="form-control" id="nombre" name="nombre" value="{{$tipo_establecimiento->nombre}}">
+                    <input type="text" class="form-control" id="nombre" name="nombre" value="{{ $tipo_establecimiento->nombre }}">
                 </div>
             </div>
-            <div class=" row mb-4">
+
+            <div class="row mb-4">
                 <label for="estatus" class="col-md-3 form-label">Estatus</label>
                 <div class="col-md-9">
-                    <select class="form-control select2" id='activo' name='activo'>
-                        <option value="0" {{ ($tipo_establecimiento->activo==0) ? 'selected' : '' }}>INACTIVO</option>
-                        <option value="1" {{ ($tipo_establecimiento->activo==1) ? 'selected' : '' }}>ACTIVO</option>
+                    <select class="form-control select2" id="activo" name="activo">
+                        <option value="0" {{ $tipo_establecimiento->activo == 0 ? 'selected' : '' }}>INACTIVO</option>
+                        <option value="1" {{ $tipo_establecimiento->activo == 1 ? 'selected' : '' }}>ACTIVO</option>
                     </select>
+                </div>
+            </div>
+
+            <div class="row mb-4">
+                <label for="imagen" class="col-md-3 form-label">Imagen</label>
+                <div class="col-md-9">
+                    <input type="file" class="form-control" id="imagen" name="imagen">
+                    @if($tipo_establecimiento->imagen)
+                        <div class="mt-2">
+                            <img src="{{ asset('storage/tipo_establecimientos/' . $tipo_establecimiento->imagen) }}" alt="Imagen actual" class="img-thumbnail" style="max-width: 200px;">
+                        </div>
+                    @endif
                 </div>
             </div>
 
@@ -41,14 +55,13 @@ Tipo Establecimientos
             <div class="mb-0 mt-4 row justify-content-end">
                 <div class="col-md-12">
                     <a href="javascript:history.back()" class="btn btn-danger"><i class="fa fa-arrow-left"></i> Regresar</a>
-                    <button class="btn btn-success pull-right"><i class="fa fa-check"></i> Aceptar</button>
+                    <button type="submit" class="btn btn-success pull-right"><i class="fa fa-check"></i> Aceptar</button>
                 </div>
             </div>
         </form>
     </div>
 </div>
 @endsection
-
 
 @section('scripts')
   <script>
