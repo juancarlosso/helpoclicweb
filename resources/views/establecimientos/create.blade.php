@@ -24,18 +24,19 @@ Establecimiento
 
 
             <div class="row mb-4">
-                <label for="proveedor" class="col-md-3 form-label">Cuenta</label>
+                <label for="cuenta_id" class="col-md-3 form-label">Cuentas</label>
                 <div class="col-md-9">
-                    <select class="form-control select2" name="cuenta_id" id="cuenta_id">
+                    <select class="form-control select2" name="cuenta_ids[]" id="cuenta_ids" multiple>
                         <option value=""> ** SELECCIONA **</option>
                         @foreach ($cuentas as $cuenta)
-                        <option value="{{ $cuenta->id }}" {{ ($cuenta->id == old('cuenta_id')) ? 'selected' : '' }}>
+                        <option value="{{ $cuenta->id }}" {{ in_array($cuenta->id, old('cuenta_ids', [])) ? 'selected' : '' }}>
                             {{ $cuenta->nombre }}
                         </option>
                         @endforeach
                     </select>
                 </div>
             </div>
+            
 
             <div class=" row mb-4">
                 <label for="razon_social" class="col-md-3 form-label">Tipo Establecimiento</label>

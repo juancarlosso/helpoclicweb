@@ -4,7 +4,6 @@
 Establecimiento
 @endsection
 
-
 @section('breadcrum')
 <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a></li>
@@ -19,16 +18,17 @@ Establecimiento
         <h4 class="card-title">Datos del establecimiento</h4>
     </div>
     <div class="card-body">
-        <form class="form-horizontal" method="POST" action="{{route('establecimientos.update',$establecimiento->id)}}" enctype="multipart/form-data">
+        <form class="form-horizontal" method="POST" action="{{route('establecimientos.update', $establecimiento->id)}}" enctype="multipart/form-data">
             @csrf
             @method('PUT')
+
             <div class="row mb-4">
-                <label for="proveedor" class="col-md-3 form-label">Cuenta</label>
+                <label for="cuenta_ids" class="col-md-3 form-label">Cuentas</label>
                 <div class="col-md-9">
-                    <select class="form-control select2" name="cuenta_id" id="cuenta_id">
+                    <select class="form-control select2" name="cuenta_ids[]" id="cuenta_ids" multiple>
                         <option value=""> ** SELECCIONA **</option>
                         @foreach ($cuentas as $cuenta)
-                        <option value="{{ $cuenta->id }}" {{ ($cuenta->id == old('cuenta_id',$establecimiento->cuenta_id)) ? 'selected' : '' }}>
+                        <option value="{{ $cuenta->id }}" {{ in_array($cuenta->id, old('cuenta_ids', $establecimiento->cuentas->pluck('id')->toArray())) ? 'selected' : '' }}>
                             {{ $cuenta->nombre }}
                         </option>
                         @endforeach
@@ -37,12 +37,12 @@ Establecimiento
             </div>
 
             <div class=" row mb-4">
-                <label for="razon_social" class="col-md-3 form-label">Tipo Establecimiento</label>
+                <label for="tipo_id" class="col-md-3 form-label">Tipo Establecimiento</label>
                 <div class="col-md-9">
                     <select class="form-control select2" name="tipo_id" id="tipo_id">
                         <option value=""> ** SELECCIONA **</option>
                         @foreach ($tipos as $tipo)
-                        <option value="{{ $tipo->id }}" {{ ($tipo->id == old('tipo_id',$establecimiento->tipo_id)) ? 'selected' : '' }}>
+                        <option value="{{ $tipo->id }}" {{ ($tipo->id == old('tipo_id', $establecimiento->tipo_id)) ? 'selected' : '' }}>
                             {{ $tipo->nombre }}
                         </option>
                         @endforeach
@@ -51,38 +51,38 @@ Establecimiento
             </div>
 
             <div class=" row mb-4">
-                <label for="razon_social" class="col-md-3 form-label">Nombre</label>
+                <label for="nombre" class="col-md-3 form-label">Nombre</label>
                 <div class="col-md-9">
-                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="" value="{{old('nombre',$establecimiento->nombre)}}">
+                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="" value="{{ old('nombre', $establecimiento->nombre) }}">
                 </div>
             </div>
 
             <div class=" row mb-4">
-                <label for="razon_social" class="col-md-3 form-label">Mostrar Seguros</label>
+                <label for="mostrar_seguros" class="col-md-3 form-label">Mostrar Seguros</label>
                 <div class="col-md-9">
                     <select class="form-control select2" name="mostrar_seguros" id="mostrar_seguros">
-                        <option value="0" {{ ($establecimiento->mostrar_seguros==0) ? 'selected' : '' }}>No</option>
-                        <option value="1" {{ ($establecimiento->mostrar_seguros==1) ? 'selected' : '' }}>Si</option>
+                        <option value="0" {{ ($establecimiento->mostrar_seguros == 0) ? 'selected' : '' }}>No</option>
+                        <option value="1" {{ ($establecimiento->mostrar_seguros == 1) ? 'selected' : '' }}>Si</option>
                     </select>
                 </div>
             </div>
 
             <div class=" row mb-4">
-                <label for="razon_social" class="col-md-3 form-label">Mostrar Productos</label>
+                <label for="mostrar_productos" class="col-md-3 form-label">Mostrar Productos</label>
                 <div class="col-md-9">
                     <select class="form-control select2" name="mostrar_productos" id="mostrar_productos">
-                        <option value="0" {{ ($establecimiento->mostrar_productos==0) ? 'selected' : '' }}>No</option>
-                        <option value="1" {{ ($establecimiento->mostrar_productos==1) ? 'selected' : '' }}>Si</option>
+                        <option value="0" {{ ($establecimiento->mostrar_productos == 0) ? 'selected' : '' }}>No</option>
+                        <option value="1" {{ ($establecimiento->mostrar_productos == 1) ? 'selected' : '' }}>Si</option>
                     </select>
                 </div>
             </div>
 
             <div class="row mb-4">
-                <label for="telefono" class="col-md-3 form-label">Activo</label>
+                <label for="activo" class="col-md-3 form-label">Activo</label>
                 <div class="col-md-9">
                     <select class="form-control select2" id='activo' name='activo'>
-                        <option value="0" {{ ($establecimiento->activo==0) ? 'selected' : '' }}>INACTIVO</option>
-                        <option value="1" {{ ($establecimiento->activo==1) ? 'selected' : '' }}>ACTIVO</option>
+                        <option value="0" {{ ($establecimiento->activo == 0) ? 'selected' : '' }}>INACTIVO</option>
+                        <option value="1" {{ ($establecimiento->activo == 1) ? 'selected' : '' }}>ACTIVO</option>
                     </select>
                 </div>
             </div>
@@ -98,6 +98,7 @@ Establecimiento
     </div>
 </div>
 @endsection
+
 @section('scripts')
   <script>
    $(".select2").select2();

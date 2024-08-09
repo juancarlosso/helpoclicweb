@@ -27,4 +27,10 @@ class Establecimiento extends Model
     {
         return $this->belongsTo(Cuenta::class, 'cuenta_id');
     }
+
+    public function cuentas()
+{
+    return $this->belongsToMany(Cuenta::class, 'cuenta_establecimiento');
+}
+
 }

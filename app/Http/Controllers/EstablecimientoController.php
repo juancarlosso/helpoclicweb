@@ -52,10 +52,16 @@ class EstablecimientoController extends Controller
     */
     public function store(EstablecimientoRequest $request)
     {
-        $establecimiento = Establecimiento::create($request->all());
+        $establecimiento = Establecimiento::create($request->except('cuenta_ids'));
+    
+        // Asociar las cuentas seleccionadas
+        if ($request->has('cuenta_ids')) {
+            $establecimiento->cuentas()->attach($request->input('cuenta_ids'));
+        }
+    
         return redirect()->route('establecimientos.index')->with('success', '¡Establecimiento creado!');
     }
-
+    
     /*
     *
     * @brief
@@ -98,8 +104,16 @@ class EstablecimientoController extends Controller
     public function update(EstablecimientoRequest $request, $id)
     {
         $establecimiento = Establecimiento::findOrFail($id);
-        $establecimiento->update($request->all());
-
+        $establecimiento->update($request->except('cuenta_ids'));
+    
+        // Sincronizar las cuentas seleccionadas
+        if ($request->has('cuenta_ids')) {
+            $establecimiento->cuentas()->sync($request->input('cuenta_ids'));
+        } else {
+            $establecimiento->cuentas()->sync([]);
+        }
+    
         return redirect()->route('establecimientos.index')->with('success', '¡Establecimiento actualizado!');
     }
+    
 }

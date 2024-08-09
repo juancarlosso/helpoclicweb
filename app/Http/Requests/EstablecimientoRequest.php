@@ -39,15 +39,17 @@ class EstablecimientoRequest extends FormRequest
     {
         if ($this->getMethod() == "POST") {
             return [
-                'tipo_id' => "required",
-                'cuenta_id' => "required",
-                'nombre'    => "required",
+                'tipo_id' => 'required',
+                'cuenta_ids' => 'required|array',
+                'cuenta_ids.*' => 'exists:cuentas,id',
+                'nombre' => 'required',
             ];
         } else {
             return [
-                'tipo_id' => "required",
-                'cuenta_id' => "required",
-                'nombre' => "required",
+                'tipo_id' => 'required',
+                'cuenta_ids' => 'required|array',
+                'cuenta_ids.*' => 'exists:cuentas,id',
+                'nombre' => 'required',
             ];
         }
     }
