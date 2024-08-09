@@ -42,7 +42,8 @@ class EstablecimientoRequest extends FormRequest
                 'tipo_id' => 'required',
                 'cuenta_ids' => 'required|array',
                 'cuenta_ids.*' => 'exists:cuentas,id',
-                'nombre' => 'required',
+                'nombre' => 'required','estado' => 'required|string|size:2',
+                'ciudad' => 'nullable|string|max:255',
             ];
         } else {
             return [
@@ -50,6 +51,8 @@ class EstablecimientoRequest extends FormRequest
                 'cuenta_ids' => 'required|array',
                 'cuenta_ids.*' => 'exists:cuentas,id',
                 'nombre' => 'required',
+                'estado' => 'required|string|size:2',
+                'ciudad' => 'nullable|string|max:255',
             ];
         }
     }

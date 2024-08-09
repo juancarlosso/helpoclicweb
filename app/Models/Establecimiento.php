@@ -16,6 +16,8 @@ class Establecimiento extends Model
         'mostrar_seguros',
         'mostrar_productos',
         'activo',
+        'estado',
+        'ciudad'
     ];
 
     public function tipo()

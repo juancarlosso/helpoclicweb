@@ -37,10 +37,14 @@ class EstablecimientoController extends Controller
     */
     public function create()
     {
-        $cuentas = Cuenta::orderBy('nombre')->get();
-        $tipos = TipoEstablecimiento::orderBy('nombre')->get();
-        return view('establecimientos.create')->with('cuentas', $cuentas)->with('tipos', $tipos);
+        $cuentas = Cuenta::all();
+        $tipos = TipoEstablecimiento::all();
+        $estados = config('constantes.estados'); // Asegúrate de usar el nombre correcto del archivo
+    
+        return view('establecimientos.create', compact('cuentas', 'tipos', 'estados'));
     }
+    
+
 
     /*
     *
@@ -50,17 +54,23 @@ class EstablecimientoController extends Controller
     * @return
     *
     */
-    public function store(EstablecimientoRequest $request)
-    {
-        $establecimiento = Establecimiento::create($request->except('cuenta_ids'));
-    
-        // Asociar las cuentas seleccionadas
-        if ($request->has('cuenta_ids')) {
-            $establecimiento->cuentas()->attach($request->input('cuenta_ids'));
-        }
-    
-        return redirect()->route('establecimientos.index')->with('success', '¡Establecimiento creado!');
+  public function store(EstablecimientoRequest $request)
+{
+    // Validar los datos del formulario en el request
+    $validatedData = $request->validated();
+
+    // Crear el establecimiento con los datos del formulario
+    $establecimiento = Establecimiento::create($validatedData);
+
+    // Asociar las cuentas seleccionadas si se proporcionaron
+    if ($request->has('cuenta_ids')) {
+        $establecimiento->cuentas()->attach($request->input('cuenta_ids'));
     }
+
+    // Redirigir con un mensaje de éxito
+    return redirect()->route('establecimientos.index')->with('success', '¡Establecimiento creado!');
+}
+
     
     /*
     *
@@ -86,12 +96,15 @@ class EstablecimientoController extends Controller
     *
     */
     public function edit($id)
-    {
-        $cuentas = Cuenta::orderBy('nombre')->get();
-        $tipos = TipoEstablecimiento::orderBy('nombre')->get();
-        $establecimiento = Establecimiento::findOrFail($id);
-        return view('establecimientos.edit')->with('cuentas', $cuentas)->with('tipos', $tipos)->with('establecimiento', $establecimiento);
-    }
+{
+    $establecimiento = Establecimiento::findOrFail($id);
+    $cuentas = Cuenta::all();
+    $tipos = TipoEstablecimiento::all();
+    $estados = config('constantes.estados'); // Usa el nombre correcto del archivo de configuración
+
+    return view('establecimientos.edit', compact('establecimiento', 'cuentas', 'tipos', 'estados'));
+}
+
 
     /*
     *
@@ -103,17 +116,22 @@ class EstablecimientoController extends Controller
     */
     public function update(EstablecimientoRequest $request, $id)
     {
+        // Encuentra el establecimiento por ID
         $establecimiento = Establecimiento::findOrFail($id);
+        
+        // Actualiza el establecimiento con los datos del request, exceptuando 'cuenta_ids'
         $establecimiento->update($request->except('cuenta_ids'));
     
-        // Sincronizar las cuentas seleccionadas
+        // Sincroniza las cuentas seleccionadas
         if ($request->has('cuenta_ids')) {
             $establecimiento->cuentas()->sync($request->input('cuenta_ids'));
         } else {
             $establecimiento->cuentas()->sync([]);
         }
     
+        // Redirige con un mensaje de éxito
         return redirect()->route('establecimientos.index')->with('success', '¡Establecimiento actualizado!');
     }
+    
     
 }
