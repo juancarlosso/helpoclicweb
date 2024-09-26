@@ -37,6 +37,16 @@
             </div>
             <hr>
 
+            <div class="row mb-4">
+                <label for="mostrar_seguros" class="col-md-3 form-label">Mostrar Seguros</label>
+                <div class="col-md-9">
+                    <select class="form-control select2" name="mostrar_seguros" id="mostrar_seguros">
+                        <option value="0">No</option>
+                        <option value="1" {{ old('mostrar_seguros') == '1' ? 'selected' : '' }}>Sí</option>
+                    </select>
+                </div>
+            </div>
+
             <div class="mb-0 mt-4 row justify-content-end">
                 <div class="col-md-12">
                     <a href="{{route('cuentas.index')}}" class="btn btn-danger"><i class="fa fa-times"></i> Cancelar</a>

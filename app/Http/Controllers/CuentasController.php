@@ -55,6 +55,7 @@ class CuentasController extends Controller
         $cuenta = new Cuenta();
         $cuenta->nombre = $request->nombre;
         $cuenta->activa = $request->activa;
+        $cuenta->mostrar_seguros = $request->mostrar_seguros; 
         $cuenta->save();
 
         return redirect()->route('cuentas.index')->with('success', 'La cuenta ha sido creada!');
@@ -103,6 +104,7 @@ class CuentasController extends Controller
 
         $cuenta->nombre = $request->nombre;
         $cuenta->activa = $request->activa;
+        $cuenta->mostrar_seguros = $request->mostrar_seguros;
         $cuenta->save();
 
         return redirect()->route('cuentas.index')->with('success', 'La cuenta ha sido modificada!');

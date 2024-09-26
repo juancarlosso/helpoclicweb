@@ -11,6 +11,7 @@ class Cuenta extends Model
 
     protected $fillable = [
         'nombre',
-        'activa'
+        'activa',
+        'mostrar_seguro',
     ];
 }
