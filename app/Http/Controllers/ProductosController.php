@@ -51,6 +51,8 @@ class ProductosController extends Controller
 			'descripcion' => $rqt->descripcion,
 			'imagen' => '',
 			'condiciones' => '',
+			'precio' => $rqt->tipo == 1 ? $rqt->precio : null, // Si es marketplace, guarda el precio, si no, deja null
+			'url' => $rqt->url,
 		]);
 
 		$establecimiento_id = $rqt->establecimiento;
@@ -66,8 +68,8 @@ class ProductosController extends Controller
 		}
 
 		$producto->update([
-			'imagen' => $path_imagen,
-			'condiciones' => $path_condiciones,
+			'imagen' => $path_imagen ?? '', // Si no hay imagen, deja el valor como vacío
+			'condiciones' => $path_condiciones ?? '', // Si no hay condiciones, deja el valor como vacío
 		]);
 
 		return redirect()->route('productos.index')->with('success', 'Producto creado');
@@ -126,6 +128,8 @@ class ProductosController extends Controller
 		$producto->nombre = $rqt->nombre;
 		$producto->activo = ((bool) $rqt->estatus);
 		$producto->descripcion = $rqt->descripcion;
+		$producto->precio = $rqt->tipo == 1 ? $rqt->precio : null; // Actualizar precio si el tipo es 1 (Marketplace)
+		$producto->url = $rqt->url; // Actualizar la URL
 		$producto->save();
 		return redirect()->route('productos.index')->with('success', 'Producto actualizado');
 	}

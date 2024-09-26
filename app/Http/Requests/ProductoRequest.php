@@ -30,6 +30,7 @@ class ProductoRequest extends FormRequest
 			'nombre' => '-Nombre-',
 			'imagen' => '-Imagen-',
 			'condiciones' => '-Condiciones-',
+			'precio' => 'required_if:tipo,1|numeric|min:0.01', // El precio es obligatorio si el tipo es marketplace
 		];
 	}
 

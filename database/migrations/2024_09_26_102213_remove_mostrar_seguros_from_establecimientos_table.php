@@ -21,7 +21,7 @@ class RemoveMostrarSegurosFromEstablecimientosTable extends Migration
     public function down()
     {
         Schema::table('establecimientos', function (Blueprint $table) {
-            $table->boolean('mostrar_seguros')->default(0); // O ajusta según la definición original del campo
+            $table->boolean('mostrar_seguros')->default(0); 
         });
     }
     

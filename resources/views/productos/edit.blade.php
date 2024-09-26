@@ -40,16 +40,38 @@ Producto
 					</select>
 				</div>
 			</div>
-			<div class=" row mb-4">
-                <label for="tipo" class="col-md-3 form-label">Tipo</label>
-                <div class="col-md-9">
-                    <select class="form-control select2" id='tipo' name='tipo' style="width: 100%">
-                        @foreach(config('constantes.tipos') as $llave => $valor )
-                        <option value="{{$llave}}" {{ $llave == $producto->tipo ? 'selected' : '' }}>{{$llave}} - {{$valor}}</option>
-                        @endforeach
-                    </select>
-                </div>
-            </div>
+			<div class="row mb-4">
+				<label for="tipo" class="col-md-3 form-label">Tipo</label>
+				<div class="col-md-9">
+					<select class="form-control select2" id="tipo" name="tipo" style="width: 100%">
+						<option value="" disabled {{ old('tipo', $producto->tipo) ? '' : 'selected' }}>Seleccionar tipo</option>
+						@foreach (config('constantes.tipos') as $llave => $valor)
+							<option value="{{ $llave }}" {{ old('tipo', $producto->tipo) == $llave ? 'selected' : '' }}>
+								{{ $llave }} - {{ $valor }}
+							</option>
+						@endforeach
+					</select>
+				</div>
+			</div>
+			
+			<!-- Campo de precio que estará oculto inicialmente -->
+			<div class="row mb-4" id="precio-container" style="{{ $producto->tipo == 1  }}">
+				<label for="precio" class="col-md-3 form-label">Solicitar Precio</label>
+				<div class="col-md-9">
+					<input type="number" class="form-control" id="precio" name="precio"
+						placeholder="Ingrese el precio" min="0.01" step="0.01" value="{{ old('precio', $producto->precio) }}" {{ $producto->tipo == 1 ? 'required' : '' }}>
+				</div>
+			</div>
+			
+			<!-- Campo de URL que estará oculto inicialmente -->
+			<div class="row mb-4" id="url-container" style="{{ $producto->tipo == 3  }}">
+				<label for="url" class="col-md-3 form-label">URL</label>
+				<div class="col-md-9">
+					<input type="url" class="form-control" id="url" name="url"
+						placeholder="Ingrese la URL" value="{{ old('url', $producto->url) }}" {{ $producto->tipo == 3 ? 'required' : '' }}>
+				</div>
+			</div>
+			
 			<div class="row mb-4">
 				<label for="nombre" class="col-md-3 form-label">Nombre producto</label>
 				<div class="col-md-9">
@@ -122,5 +144,38 @@ Producto
 			allowClear: true
 		});
 	});
+
+
+	$(document).ready(function() {
+    // Función para mostrar/ocultar campos según el tipo
+    function toggleFields(selectedValue) {
+        if (selectedValue == 1) {
+            // Mostrar el campo de precio y hacerlo obligatorio
+            $('#precio-container').show();
+            $('#precio').attr('required', true).attr('min', '0.01'); // Hacer el campo obligatorio y mayor a 0
+            $('#url-container').hide(); // Ocultar el campo de URL
+        } else if (selectedValue == 3) {
+            $('#url-container').show(); // Mostrar el campo de URL y hacerlo obligatorio
+            $('#url').attr('required', true);
+            $('#precio-container').hide(); // Ocultar el campo de precio
+            $('#precio').removeAttr('required').removeAttr('min');
+        } else {
+            $('#precio-container').hide(); // Ocultar el campo de precio
+            $('#precio').removeAttr('required').removeAttr('min');
+            $('#url-container').hide(); // Ocultar el campo de URL
+            $('#url').removeAttr('required');
+        }
+    }
+
+    // Ejecutar al cambiar el select
+    $('#tipo').on('change', function() {
+        var selectedValue = $(this).val();
+        toggleFields(selectedValue);
+    });
+
+    // Llamar a la función al cargar la página para configurar los campos según el valor actual
+    toggleFields($('#tipo').val());
+});
+
 </script>
 @endsection
