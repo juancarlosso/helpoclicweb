@@ -13,7 +13,6 @@ class Establecimiento extends Model
         'tipo_id',
         'cuenta_id',
         'nombre',
-        'mostrar_seguros',
         'mostrar_productos',
         'activo',
         'estado',

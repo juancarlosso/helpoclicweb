@@ -57,16 +57,6 @@
                 </div>
             </div>
             <div class="row mb-4">
-                <label for="mostrar_seguros" class="col-md-3 form-label">Mostrar Seguros</label>
-                <div class="col-md-9">
-                    <select class="form-control select2" name="mostrar_seguros" id="mostrar_seguros">
-                        <option value="0" {{ old('mostrar_seguros', $establecimiento->mostrar_seguros) == '0' ? 'selected' : '' }}>No</option>
-                        <option value="1" {{ old('mostrar_seguros', $establecimiento->mostrar_seguros) == '1' ? 'selected' : '' }}>Sí</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="row mb-4">
                 <label for="mostrar_productos" class="col-md-3 form-label">Mostrar Productos</label>
                 <div class="col-md-9">
                     <select class="form-control select2" name="mostrar_productos" id="mostrar_productos">
