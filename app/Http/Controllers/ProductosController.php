@@ -126,7 +126,7 @@ class ProductosController extends Controller
 		$producto->establecimiento_id = $rqt->establecimiento;
 		$producto->tipo = $rqt->tipo;
 		$producto->nombre = $rqt->nombre;
-		$producto->activo = ((bool) $rqt->estatus);
+		$producto->activo = $rqt->activo;
 		$producto->descripcion = $rqt->descripcion;
 		$producto->precio = $rqt->tipo == 1 ? $rqt->precio : null; // Actualizar precio si el tipo es 1 (Marketplace)
 		$producto->url = $rqt->url; // Actualizar la URL

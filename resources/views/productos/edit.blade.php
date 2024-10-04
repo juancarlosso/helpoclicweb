@@ -10,10 +10,10 @@ Producto
 
 
 @section('breadcrum')
-<ol class="breadcrumb">        
-	<li class="breadcrumb-item"><a href="{{route('home')}}">Home</a></li>        
-	<li class="breadcrumb-item"><a href="{{route('productos.index')}}">Producto</a></li>                
-	<li class="breadcrumb-item"><a href="#">Nuevo</a></li>                
+<ol class="breadcrumb">
+	<li class="breadcrumb-item"><a href="{{route('home')}}">Home</a></li>
+	<li class="breadcrumb-item"><a href="{{route('productos.index')}}">Producto</a></li>
+	<li class="breadcrumb-item"><a href="#">Nuevo</a></li>
 </ol>
 @endsection
 
@@ -53,7 +53,7 @@ Producto
 					</select>
 				</div>
 			</div>
-			
+
 			<!-- Campo de precio que estará oculto inicialmente -->
 			<div class="row mb-4" id="precio-container" style="{{ $producto->tipo == 1  }}">
 				<label for="precio" class="col-md-3 form-label">Solicitar Precio</label>
@@ -62,7 +62,7 @@ Producto
 						placeholder="Ingrese el precio" min="0.01" step="0.01" value="{{ old('precio', $producto->precio) }}" {{ $producto->tipo == 1 ? 'required' : '' }}>
 				</div>
 			</div>
-			
+
 			<!-- Campo de URL que estará oculto inicialmente -->
 			<div class="row mb-4" id="url-container" style="{{ $producto->tipo == 3  }}">
 				<label for="url" class="col-md-3 form-label">URL</label>
@@ -71,7 +71,7 @@ Producto
 						placeholder="Ingrese la URL" value="{{ old('url', $producto->url) }}" {{ $producto->tipo == 3 ? 'required' : '' }}>
 				</div>
 			</div>
-			
+
 			<div class="row mb-4">
 				<label for="nombre" class="col-md-3 form-label">Nombre producto</label>
 				<div class="col-md-9">
@@ -85,17 +85,17 @@ Producto
 					<textarea class="form-control" name="descripcion" id="descripcion" cols="30" rows="10">{{ $producto->descripcion ?? old('descripcion') }}</textarea>
 				</div>
 			</div>
-			
+
 			<div class="row mb-4">
 				<label for="activo" class="col-md-3 form-label">Activo</label>
 				<div class="col-md-9">
 					<select class="form-control select2" name="activo" id="activo">
-						<option value="true" {{ ($producto->activo) ? 'selected' : '' }}>Activo</option>
-						<option value="false" {{ (!$producto->activo) ? 'selected' : '' }}>Inactivo</option>
+						<option value="1" {{ ($producto->activo) ? 'selected' : '' }}>Activo</option>
+						<option value="0" {{ (!$producto->activo) ? 'selected' : '' }}>Inactivo</option>
 					</select>
 				</div>
 			</div>
-		
+
 			<div class="row mb-4">
 				<label for="imagen" class="col-md-3 form-label">Imagen</label>
 				<div class="col-md-7">
