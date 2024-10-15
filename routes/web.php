@@ -5,7 +5,7 @@ use App\Http\Controllers\ProveedoresController;
 use App\Http\Controllers\EstablecimientoController;
 use App\Http\Controllers\TipoEstablecimientoController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\TiendaController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -43,4 +43,6 @@ Route::group(['middleware' => ['auth']], function () {
    Route::resource('establecimientos', EstablecimientoController::class);
 
    Route::resource('productos', ProductosController::class);
+   
+   Route::get('tienda',[TiendaController::class,'index'])->name('tienda.app');
 });
