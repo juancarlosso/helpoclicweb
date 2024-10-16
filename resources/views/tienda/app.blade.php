@@ -1,6 +1,6 @@
 
 @extends('tienda.layouts.head')
-@extends('tienda.layouts.menu')
+@extends('tienda.layouts.header')
  <div class="breadcrumbs__section breadcrumbs__section-thin brk-bg-center-cover lazyload" data-bg="img/1920x258_1.jpg" data-brk-library="component__breadcrumbs_css">
 		<span class="brk-abs-bg-overlay brk-bg-grad opacity-80"></span>
 		<div class="breadcrumbs__wrapper">
@@ -1089,7 +1089,7 @@
 							<div class="brk-slider-cube" data-brk-library="component__widgets,slider__swiper">
 								<div class="brk-slider-cube__overlay"></div>
 								<div class="brk-slider-cube__items swiper-container">
-									<div class="swiper-wrapper">
+									<div class="swiper-wrapper" style="height: 869px !important;">
 										<div class="swiper-slide">
 											<div class="brk-sc-simple-card" data-brk-library="component__shop_cards">
 												<img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img/shop/shop-win-5.png" alt="alt" class="brk-sc-simple-card__img lazyload">
