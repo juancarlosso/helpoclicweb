@@ -37,7 +37,7 @@
 				<div class="row">
 					<div class="col-12 mb-70">
 						<div class="brk-sc-tiles-banner shadow" data-brk-library="component__widgets">
-							<img src="{{ asset('images/img/bg-1920_1.jpg') }}" alt="alt" class="brk-sc-tiles-banner__bg">
+							<img src="{{ asset('img/bg-1920_1.jpg') }}" alt="alt" class="brk-sc-tiles-banner__bg">
 							<div class="brk-sc-tiles-banner__overlay"></div>
 							<div class="row">
 								<div class="col-12 col-sm-8 col-lg-5">
