@@ -1087,9 +1087,9 @@
 								<h3 class="font__family-montserrat font__size-21 font__weight-bold line__height-22">Popular items</h3>
 							</div>
 							<div class="brk-slider-cube" data-brk-library="component__widgets,slider__swiper">
-								<div class="brk-slider-cube__overlay"></div>
+								<div class="brk-slider-cube__overlay" style="height: 15% !important; top: 9% !important;"></div>
 								<div class="brk-slider-cube__items swiper-container">
-									<div class="swiper-wrapper" style="height: 869px !important;">
+									<div class="swiper-wrapper">
 										<div class="swiper-slide">
 											<div class="brk-sc-simple-card" data-brk-library="component__shop_cards">
 												<img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img/shop/shop-win-5.png" alt="alt" class="brk-sc-simple-card__img lazyload">
