@@ -18,7 +18,8 @@ use App\Http\Controllers\TiendaController;
 */
 
 Auth::routes();
-Route::get('/tienda',[TiendaController::class,'index'])->name('tienda.app');
+Route::get('/tienda',[TiendaController::class,'indexHome'])->name('tiendahome.app');
+Route::get('/tienda/{tipo}',[TiendaController::class,'index'])->name('tienda.app');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('first.home');
 Route::get('/cambiar-password/{id}/{hash}/{token}', [App\Http\Controllers\Auth\ResetPasswordController::class, 'showResetForm'])->name('password.cambiar');

@@ -1,7 +1,7 @@
 
 @extends('tienda.layouts.head')
 @extends('tienda.layouts.header')
- <div class="breadcrumbs__section breadcrumbs__section-thin brk-bg-center-cover lazyload" data-bg="img/1920x258_1.jpg" data-brk-library="component__breadcrumbs_css">
+ <div class="breadcrumbs__section breadcrumbs__section-thin brk-bg-center-cover lazyload" data-bg="{{asset('img/1920x258_1.jpg')}}" data-brk-library="component__breadcrumbs_css">
 		<span class="brk-abs-bg-overlay brk-bg-grad opacity-80"></span>
 		<div class="breadcrumbs__wrapper">
 			<div class="container">
@@ -9,14 +9,14 @@
 					<div class="col-12 col-lg-6">
 						<div class="d-flex justify-content-lg-end justify-content-start pr-40 pr-xs-0 breadcrumbs__title">
 							<h2 class="brk-white-font-color font__weight-semibold font__size-48 line__height-68 font__family-montserrat">
-								Our Services
+								Nuestros Servicios
 							</h2>
 						</div>
 					</div>
 					<div class="col-12 col-lg-6">
 						<div class="pt-25 pb-35 position-static position-lg-relative breadcrumbs__subtitle">
 							<h3 class="brk-white-font-color font__family-montserrat font__weight-medium font__size-18 line__height-21 text-uppercase mb-15">
-								Check all our services
+								Consulta todos nuestros servicios
 							</h3>
 							<ol class="breadcrumb font__family-montserrat font__size-15 line__height-16 brk-white-font-color">
 								<li>
@@ -42,27 +42,31 @@
 							<div class="row">
 								<div class="col-12 col-sm-8 col-lg-5">
 									<div class="brk-sc-tiles-banner__info">
-										<h3 class="brk-sc-tiles-banner__title brk-white-font-color font__family-montserrat font__size-36 font__weight-bold line__height-42 mb-25 letter-spacing--20">Best products for you and your friends</h3>
+										<h3 class="brk-sc-tiles-banner__title brk-white-font-color font__family-montserrat font__size-36 font__weight-bold line__height-42 mb-25 letter-spacing--20">Los mejores productos para ti y tus amigos</h3>
 										<div class="brk-sc-tags font__family-open-sans font__size-16 font__weight-normal line__height-26 d-flex align-items-center flex-wrap mb-20" data-brk-library="component__widgets">
 											<a href="#" class="brk-sc-tags__item">T-Shirts</a>
 											<a href="#" class="brk-sc-tags__item">Branding</a>
 											<a href="#" class="brk-sc-tags__item">WooCommerce</a>
 										</div>
 										<a href="#" class="btn btn-inside-out btn-inside-out-invert btn-lg border-radius-30 font__family-open-sans font__weight-bold brk-sc-tiles-banner__btn pl-70 pr-70" data-brk-library="component__button">
-											<span class="before">READ MORE</span><span class="text">Click Me</span><span class="after">READ MORE</span>
+											<span class="before">Leer más</span><span class="text">Click aquí</span><span class="after">Leer más</span>
 										</a>
 									</div>
 								</div>
 								<div class="col-12 col-sm-4 col-lg-4">
 									<div class="brk-sc-tiles-banner__img">
+										@if($ultimoProducto->imagen)
+										<img src="{{ asset('storage/'.$ultimoProducto->imagen) }}">
+										@else
 										<img src="img/shop/tshirt-brk.png" alt="alt">
+										@endif
 									</div>
 								</div>
 								<div class="col-12 col-lg-3">
 									<div class="brk-sc-tiles-banner__links">
 										<a href="#" class="brk-sc-tiles-banner__link">
 											<span class="font__family-montserrat brk-white-font-color font__size-42 font__weight-light line__height-42 mr-35">01</span>
-											<span class="brk-white-font-color font__size-16 font__weight-normal line__height-21">Bershka, Mango, Diadora</span>
+											<span class="brk-white-font-color font__size-16 font__weight-normal line__height-21">{{$productosTendencia[0]->nombre}}</span>
 											<div class="brk-sc-tiles-banner__discount">
 												<svg vxmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 461 483">
 													<g>
@@ -78,7 +82,7 @@
 										</a>
 										<a href="#" class="brk-sc-tiles-banner__link">
 											<span class="font__family-montserrat brk-white-font-color font__size-42 font__weight-light line__height-42 mr-35">02</span>
-											<span class="brk-white-font-color font__size-16 font__weight-normal line__height-21">Bershka, Mango, Diadora</span>
+											<span class="brk-white-font-color font__size-16 font__weight-normal line__height-21">{{$productosTendencia[1]->nombre}}</span>
 											<div class="brk-sc-tiles-banner__discount">
 												<svg vxmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 461 483">
 													<g>
@@ -94,7 +98,7 @@
 										</a>
 										<a href="#" class="brk-sc-tiles-banner__link">
 											<span class="font__family-montserrat brk-white-font-color font__size-42 font__weight-light line__height-42 mr-35">03</span>
-											<span class="brk-white-font-color font__size-16 font__weight-normal line__height-21">Bershka, Mango, Diadora</span>
+											<span class="brk-white-font-color font__size-16 font__weight-normal line__height-21">{{$productosTendencia[2]->nombre}}</span>
 										</a>
 									</div>
 								</div>

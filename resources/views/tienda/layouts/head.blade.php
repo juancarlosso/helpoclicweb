@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-brk-skin="brk-blue.css">
+<html lang="en" data-brk-skin="{{ asset('css/skins/brk-blue.css') }}">
 <head>
   <title>Helpo Click Tienda</title>
   <meta charset="utf-8">
@@ -16,6 +16,11 @@
 		<link id="brk-base-color" rel="stylesheet" href="{{ asset('css/skins/brk-base-color.css') }}">
 		<link rel="stylesheet" id="brk-direction-offsets" href="{{ asset('css/assets/offsets.css') }}">
 		<link id="brk-css-min" rel="stylesheet" href="{{ asset('css/assets/styles.min.css') }}">
+		<link rel="stylesheet" href="{{ asset('css/components/google-maps.css') }}">
+		<link rel="stylesheet" href="{{ asset('css/components/breadcrumbs.css') }}">
+		<link rel="stylesheet" href="{{ asset('css/components/widgets.css') }}">
+		<link rel="stylesheet" href="{{ asset('css/components/sliders.css') }}">
+		<link rel="stylesheet" href="{{ asset('css/components/shop-components-cards.css') }}">
 
 </head>
 <body>
@@ -28,8 +33,8 @@
 		</div>
 		<div class="brk-header-mobile__logo">
 			<a href="#">
-				<img class="brk-header-mobile__logo-1 lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img/logo-2.png" alt="alt">
-				<img class="brk-header-mobile__logo-2 lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img/logo-dark-2.png" alt="alt">
+				<img class="brk-header-mobile__logo-1 lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{asset('img/logo-2.png')}}" alt="alt">
+				<img class="brk-header-mobile__logo-2 lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{asset('img/logo-dark-2.png')}}" alt="alt">
 			</a>
 		</div>
 	</div>

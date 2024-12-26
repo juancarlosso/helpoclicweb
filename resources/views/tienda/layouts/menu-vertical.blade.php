@@ -31,10 +31,10 @@
 				<div>
 					<div class="brk-header-slider">
 						<div class="brk-header-slider__img">
-							<img src="img/309x206_1.jpg" alt="alt">
+							<img src="{{asset('img/309x206_1.jpg')}}" alt="alt">
 						</div>
 						<div class="brk-header-slider__content">
-							<img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img/head-icon.png" alt="alt">
+							<img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{asset('img/head-icon.png')}}" alt="alt">
 							<div class="brk-header-slider__content--title">
 								<h4 class="font__family-montserrat font__weight-bold font__size-16">@berserk</h4>
 								<span class="font__size-14">17 Hours ago</span>
@@ -47,10 +47,10 @@
 				<div>
 					<div class="brk-header-slider">
 						<div class="brk-header-slider__img">
-							<img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img/309x206_2.jpg" alt="alt">
+							<img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{asset('img/309x206_2.jpg')}}" alt="alt">
 						</div>
 						<div class="brk-header-slider__content">
-							<img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img/head-icon.png" alt="alt">
+							<img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{asset('img/head-icon.png')}}" alt="alt">
 							<div class="brk-header-slider__content--title">
 								<h4 class="font__family-montserrat font__weight-bold font__size-16">@berserk</h4>
 								<span class="font__size-14">17 Hours ago</span>
@@ -63,10 +63,10 @@
 				<div>
 					<div class="brk-header-slider">
 						<div class="brk-header-slider__img">
-							<img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img/309x206_3.jpg" alt="alt">
+							<img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{asset('img/309x206_3.jpg')}}" alt="alt">
 						</div>
 						<div class="brk-header-slider__content">
-							<img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img/head-icon.png" alt="alt">
+							<img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{asset('img/head-icon.png')}}" alt="alt">
 							<div class="brk-header-slider__content--title">
 								<h4 class="font__family-montserrat font__weight-bold font__size-16">@berserk</h4>
 								<span class="font__size-14">17 Hours ago</span>

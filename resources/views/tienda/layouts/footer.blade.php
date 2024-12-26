@@ -50,7 +50,7 @@
 						</div>
 						<div class="pl-lg-15">
 							<div class="position-relative d-flex align-items-center justify-content-between rounded overflow-hid pt-30 pb-30 pr-20 pl-lg-50 pl-20 cfa_footer mt-lg-50 mt-20" data-brk-library="component__call_to_action">
-								<img src="img/750x115_1.jpg" alt="alt" class="brk-abs-img">
+								<img src="{{asset('img/750x115_1.jpg')}}" alt="alt" class="brk-abs-img">
 								<span class="brk-abs-overlay brk-base-bg-gradient-50deg-a"></span>
 								<p class="brk-white-font-color font__family-montserrat font__size-21 font__weight-bold pr-lg-35">
 									CFA Heading
