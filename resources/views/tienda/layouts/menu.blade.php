@@ -19,23 +19,25 @@ $categorias = App\Models\TipoEstablecimiento::where('activo', 1)->get();
 										<span>Home</span>
 									</a>
 								</li>
-								@foreach ($categorias as $cat)
-								<li class="brk-nav__children brk-nav__drop-down-effect">
-									<a href="{{route('tienda.app', $cat->nombre)}}">
-										<span>{{$cat->nombre}}</span>
-									</a>
-								{{--	@if($cat->establecimientos->count() > 0)
-										<ul class="brk-nav__sub-menu brk-nav-drop-down font__family-montserrat">
-										@foreach ($cat->establecimientos as $establecimiento)
-											<li class="dd-effect">
-												<a href="blog.html">{{$establecimiento->nombre}}</a>
-											</li>
-										@endforeach
-										</ul>
-									@endif
-								--}}
-								</li>
-								@endforeach
+								@if($categorias->count() > 0)
+									@foreach ($categorias as $cat)
+									<li class="brk-nav__children brk-nav__drop-down-effect">
+										<a href="{{route('tienda.app', $cat->nombre)}}">
+											<span>{{$cat->nombre}}</span>
+										</a>
+									{{--	@if($cat->establecimientos->count() > 0)
+											<ul class="brk-nav__sub-menu brk-nav-drop-down font__family-montserrat">
+											@foreach ($cat->establecimientos as $establecimiento)
+												<li class="dd-effect">
+													<a href="blog.html">{{$establecimiento->nombre}}</a>
+												</li>
+											@endforeach
+											</ul>
+										@endif
+									--}}
+									</li>
+									@endforeach
+								@endif
 							</ul>
 						</nav>
 					</div>

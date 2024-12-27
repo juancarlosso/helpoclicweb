@@ -21,6 +21,7 @@
 							</a>
 						</div>
 					</div>
+					@if($ultimoProducto)
 					<div class="col-12 col-sm-4 col-lg-4">
 						<div class="brk-sc-tiles-banner__img">
 							@if($ultimoProducto?->imagen)
@@ -30,7 +31,8 @@
 							@endif
 						</div>
 					</div>
-					@if($productosTendencia->count()>2)
+					@endif
+					@if($productosTendencia && $productosTendencia->count()>2)
 					<div class="col-12 col-lg-3">
 						<div class="brk-sc-tiles-banner__links">
 							<a href="#" class="brk-sc-tiles-banner__link">
@@ -75,7 +77,7 @@
 				</div>
 			</div>
 		</div>
-		@if($descuentos->count()>0)
+		@if($descuentos && $descuentos->count()>0)
 			<div class="col-12 col-lg-8 col-xl-9 order-xs-2 order-lg-1">
 				<div class="brs-sidebar__title">
 					<h3 class="font__family-montserrat font__size-21 font__weight-bold line__height-22">Descuentos</h3>
@@ -388,7 +390,7 @@
 		@endif
 	</div>
 	<div class="row" style="padding-top: 50px;">
-		@if($market->count()>0)
+		@if($market && $market->count()>0)
 			<div class="col-12 col-lg-8 col-xl-9 order-xs-2 order-lg-1">
 				<div class="brs-sidebar__title">
 					<h3 class="font__family-montserrat font__size-21 font__weight-bold line__height-22">Marketplace</h3>
