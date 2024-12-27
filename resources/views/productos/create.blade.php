@@ -113,7 +113,7 @@
                 </div>
                 <div class="row mb-4">
                     <label for="imagen" class="col-md-3 form-label">Imagen<br>
-                    <span style="font-weight: 400;font-style: oblique;">Subir imagen de tamaño cuadrado ejemplo: 1000px x 1000px, 270px x 270px, 370px x 370px</span>
+                    <span style="font-weight: 400;font-style: oblique;">Para mejores resultados subir imagen de 1000px x 1000px</span>
                     </label>
                     <div class="col-md-9">
                         <input type="file" class="form-control" id="imagen" name="imagen" accept="image/*">
