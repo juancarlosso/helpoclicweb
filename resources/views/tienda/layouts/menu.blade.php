@@ -1,3 +1,6 @@
+@php
+$categorias = App\Models\TipoEstablecimiento::where('activo', 1)->get();
+@endphp
 <div class="brk-header__main-bar brk-header_border-bottom order-lg-2 order-1" style="height: 72px;">
 			<div class="container-fluid">
 				<div class="row no-gutters align-items-center">
@@ -21,7 +24,7 @@
 									<a href="{{route('tienda.app', $cat->nombre)}}">
 										<span>{{$cat->nombre}}</span>
 									</a>
-									@if($cat->establecimientos->count() > 0)
+								{{--	@if($cat->establecimientos->count() > 0)
 										<ul class="brk-nav__sub-menu brk-nav-drop-down font__family-montserrat">
 										@foreach ($cat->establecimientos as $establecimiento)
 											<li class="dd-effect">
@@ -30,6 +33,7 @@
 										@endforeach
 										</ul>
 									@endif
+								--}}
 								</li>
 								@endforeach
 							</ul>
@@ -38,8 +42,8 @@
 					<div class="col-lg-2 align-self-lg-center d-none d-lg-block">
 						<div class="text-center">
 							<a href="/" class="brk-header__logo brk-header__item @@modifier">
-								<img class="brk-header__logo-1 lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img/logo.svg" alt="alt">
-								<img class="brk-header__logo-2 lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img/logo-dark.svg" alt="alt">
+								<img class="brk-header__logo-1 lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{asset('img/logo.svg')}}" alt="alt">
+								<img class="brk-header__logo-2 lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{asset('img/logo-dark.svg')}}" alt="alt">
 							</a>
 						</div>
 					</div>
@@ -75,7 +79,7 @@
 								<div class="brk-mini-cart__products">
 									<div class="brk-mini-cart__product">
 										<div class="brk-mini-cart__product--img">
-											<img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img/shop/shop-setout-2.png" alt="alt">
+											<img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{asset('img/shop/shop-setout-2.png')}}" alt="alt">
 										</div>
 										<div class="brk-mini-cart__product--title-price">
 											<a href="#">
@@ -93,7 +97,7 @@
 									</div>
 									<div class="brk-mini-cart__product">
 										<div class="brk-mini-cart__product--img">
-											<img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img/shop/shop-setout-2.png" alt="alt">
+											<img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src=" {{asset('img/shop/shop-setout-2.png')}}" alt="alt">
 										</div>
 										<div class="brk-mini-cart__product--title-price">
 											<a href="#">
@@ -111,7 +115,7 @@
 									</div>
 									<div class="brk-mini-cart__product">
 										<div class="brk-mini-cart__product--img">
-											<img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img/shop/shop-setout-2.png" alt="alt">
+											<img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{asset('img/shop/shop-setout-2.png')}}" alt="alt">
 										</div>
 										<div class="brk-mini-cart__product--title-price">
 											<a href="#">
@@ -129,7 +133,7 @@
 									</div>
 									<div class="brk-mini-cart__product">
 										<div class="brk-mini-cart__product--img">
-											<img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img/shop/shop-setout-2.png" alt="alt">
+											<img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{asset('img/shop/shop-setout-2.png')}}" alt="alt">
 										</div>
 										<div class="brk-mini-cart__product--title-price">
 											<a href="#">

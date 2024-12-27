@@ -4,7 +4,7 @@
 				<div class="row">
 					<div class="col-12 col-lg-7">
 						<div class="brk-map brk-map_extra h-100" data-height="367" data-brk-library="component__map">
-							<div class="brk-map__canvas" data-address="" data-zoom="13" data-type="roadmap" data-marker="img/gm-3.png" data-offset-lat="" data-offset-lng="" data-lat="40.6898297" data-lng="-73.94250620000003" data-style="silver" data-info-window=".info-map">
+							<div class="brk-map__canvas" data-address="" data-zoom="13" data-type="roadmap" data-marker="{{asset('img/gm-3.png')}}" data-offset-lat="" data-offset-lng="" data-lat="40.6898297" data-lng="-73.94250620000003" data-style="silver" data-info-window=".info-map">
 							</div>
 						</div>
 					</div>
@@ -12,38 +12,25 @@
 						<div class="pl-lg-15 pr-lg-15 pt-lg-0 pt-30">
 							<div class="row">
 								<nav class="col-6 col-lg-3 pb-lg-0 pb-30">
-									<p class="font__family-montserrat font__size-16 font__weight-medium text-uppercase mt-15 mb-30">Policy info</p>
+									<p class="font__family-montserrat font__size-16 font__weight-medium text-uppercase mt-15 mb-30">Información de la Política</p>
 									<ul class="brk-dark-font-color line__height-26">
-										<li class="mb-10"><a href="#">Privacy info</a></li>
-										<li class="mb-10"><a href="#">Terms of Sale</a></li>
-										<li class="mb-10"><a href="#">Terms of Use</a></li>
-										<li><a href="#">Takedown Policy</a></li>
+										<li class="mb-10"><a href="#">Aviso de Privacidad</a></li>
+										<li class="mb-10"><a href="#">Condiciones de Venta</a></li>
 									</ul>
 								</nav>
 								<nav class="col-6 col-lg-3 pb-lg-0 pb-30">
-									<p class="font__family-montserrat font__size-16 font__weight-medium text-uppercase mt-15 mb-30">Company</p>
+									<p class="font__family-montserrat font__size-16 font__weight-medium text-uppercase mt-15 mb-30">Empresa</p>
 									<ul class="brk-dark-font-color line__height-26">
-										<li class="mb-10"><a href="#">About Us</a></li>
-										<li class="mb-10"><a href="#">Careers</a></li>
-										<li class="mb-10"><a href="#">Find Store</a></li>
+										<li class="mb-10"><a href="#">Sobre nosotros</a></li>
+										<li class="mb-10"><a href="#">Encontrar tienda</a></li>
 										<li><a href="#">Blog</a></li>
 									</ul>
 								</nav>
 								<nav class="col-6 col-lg-3 pb-lg-0 pb-30">
-									<p class="font__family-montserrat font__size-16 font__weight-medium text-uppercase mt-15 mb-30">Business</p>
-									<ul class="brk-dark-font-color line__height-26">
-										<li class="mb-10"><a href="#">Online Shopping</a></li>
-										<li class="mb-10"><a href="#">Become a Seller</a></li>
-										<li class="mb-10"><a href="#">Advertisement</a></li>
-										<li><a href="#">Be an Affiliate</a></li>
-									</ul>
-								</nav>
-								<nav class="col-6 col-lg-3 pb-lg-0 pb-30">
-									<p class="font__family-montserrat font__size-16 font__weight-medium text-uppercase mt-15 mb-30">Need Help?</p>
+									<p class="font__family-montserrat font__size-16 font__weight-medium text-uppercase mt-15 mb-30">Necesitas ayuda?</p>
 									<ul class="brk-dark-font-color line__height-26">
 										<li class="mb-10"><a href="#">FAQ</a></li>
-										<li class="mb-10"><a href="#">Help Center</a></li>
-										<li><a href="#">Online Chat</a></li>
+										<li class="mb-10"><a href="#">Centro de ayuda</a></li>
 									</ul>
 								</nav>
 							</div>

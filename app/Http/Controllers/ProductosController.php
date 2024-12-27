@@ -52,6 +52,7 @@ class ProductosController extends Controller
 			'imagen' => '',
 			'condiciones' => '',
 			'precio' => $rqt->tipo == 1 ? $rqt->precio : null, // Si es marketplace, guarda el precio, si no, deja null
+			'descuento' => $rqt->descuento != null ||  $rqt->descuento != ''? $rqt->descuento : null, 
 			'url' => $rqt->url,
 		]);
 
@@ -129,6 +130,7 @@ class ProductosController extends Controller
 		$producto->activo = $rqt->activo;
 		$producto->descripcion = $rqt->descripcion;
 		$producto->precio = $rqt->tipo == 1 ? $rqt->precio : null; // Actualizar precio si el tipo es 1 (Marketplace)
+		$producto->descuento = $rqt->descuento != null ||  $rqt->descuento != ''? $rqt->descuento : null; // Actualizar precio si el tipo es 1 (Marketplace)
 		$producto->url = $rqt->url; // Actualizar la URL
 		$producto->save();
 		return redirect()->route('productos.index')->with('success', 'Producto actualizado');

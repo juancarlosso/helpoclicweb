@@ -16,32 +16,26 @@ class TiendaController extends Controller
     * @return
     *
     */
-    public function index($tipo)
-    {
-        $categorias = TipoEstablecimiento::where('activo', 1)->get();
-        foreach($categorias as $cat){
-            $establecimientos = Establecimiento::where('tipo_id', $cat->id)->get();
-            $cat->establecimientos = $establecimientos;
-        }
-
-        $ultimoProducto = Producto::orderBy('id', 'desc')->first();
-        $productosTendencia = Producto::orderBy('id', 'desc')->take(3)->get();
-
-        return view('tienda.app', compact('categorias','ultimoProducto','productosTendencia'));
-    }
-
     public function indexHome()
     {
-        $categorias = TipoEstablecimiento::where('activo', 1)->get();
-        foreach($categorias as $cat){
-            $establecimientos = Establecimiento::where('tipo_id', $cat->id)->get();
-            $cat->establecimientos = $establecimientos;
-        }
-
-        $ultimoProducto = Producto::orderBy('id', 'desc')->first();
-        $productosTendencia = Producto::orderBy('id', 'desc')->take(3)->get();
-
-        return view('tienda.app', compact('categorias','ultimoProducto','productosTendencia'));
+        return view('tienda.home');
     }
+    
+    public function index($tipo)
+    {
+        $tipo = TipoEstablecimiento::where('nombre', $tipo)->first();
+        $establecimientosIds = Establecimiento::where('tipo_id', $tipo->id)->pluck('id')->toArray();
+        $productos = Producto::whereIn('establecimiento_id', $establecimientosIds)->get();
+
+        $ultimoProducto = Producto::whereIn('establecimiento_id', $establecimientosIds)->where('activo', 1)->orderBy('id', 'desc')->first();
+        $productosTendencia = Producto::whereIn('establecimiento_id', $establecimientosIds)->where('activo', 1)->orderBy('id', 'desc')->take(3)->get();
+
+        $descuentos = Producto::whereIn('establecimiento_id', $establecimientosIds)->whereNotNull('descuento')->where('tipo', 2)->where('activo', 1)->get();
+        $market = Producto::whereIn('establecimiento_id', $establecimientosIds)->where('tipo', 1)->where('activo', 1)->get();
+        
+        return view('tienda.tipo_establecimiento.index', compact('productos','ultimoProducto','productosTendencia','descuentos','market'));
+    }
+
+   
 
 }

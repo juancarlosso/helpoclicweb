@@ -95,6 +95,23 @@
                     </div>
                 </div>
                 <div class="row mb-4">
+                    <label for="activo" class="col-md-3 form-label">¿Tiene Descuento?</label>
+                    <div class="col-md-6">
+                        <select class="form-control select2" name="desc" id="desc">
+                            <option value="" selected>** SELECCIONA RESPUESTA **</option>
+                            <option value="si">Si</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row mb-4" style="display: none;" id="inputDiv">
+                    <label for="activo" class="col-md-3 form-label">¿Cuanto?</label>
+                    <div class="col-md-6">
+                        <input type="text" class="form-control decimales" id="descuento" name="descuento"
+                            value="{{ old('descuento') }}">
+                    </div>
+                </div>
+                <div class="row mb-4">
                     <label for="imagen" class="col-md-3 form-label">Imagen</label>
                     <div class="col-md-9">
                         <input type="file" class="form-control" id="imagen" name="imagen" accept="image/*">
@@ -127,6 +144,10 @@
     <script src="{{ asset('assets/js/select2.js') }}"></script>
     <script type="text/javascript">
         $(document).ready(function() {
+            $('.decimales').on('input', function () {
+					this.value = this.value.replace(/[^0-9,.]/g, '').replace(/,/g, '.');
+			});
+            
             $('#establecimiento').select2({
                 placeholder: "Seleccione establecimiento...",
                 allowClear: true
@@ -164,6 +185,15 @@
                         $('#url-container').hide(); // Ocultar el campo de URL y remover la obligación
                         $('#url').removeAttr('required');
                     }
+                }
+            });
+
+            $('#desc').change(function() {
+                // Si la opción seleccionada es 'si', muestra el input
+                if ($(this).val() === "si") {
+                    $('#inputDiv').show(); // Muestra el div que contiene el input
+                } else {
+                    $('#inputDiv').hide(); // Oculta el div que contiene el input
                 }
             });
         });

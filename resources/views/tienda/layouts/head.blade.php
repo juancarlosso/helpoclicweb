@@ -16,11 +16,11 @@
 		<link id="brk-base-color" rel="stylesheet" href="{{ asset('css/skins/brk-base-color.css') }}">
 		<link rel="stylesheet" id="brk-direction-offsets" href="{{ asset('css/assets/offsets.css') }}">
 		<link id="brk-css-min" rel="stylesheet" href="{{ asset('css/assets/styles.min.css') }}">
-		<link rel="stylesheet" href="{{ asset('css/components/google-maps.css') }}">
+		{{--<link rel="stylesheet" href="{{ asset('css/components/google-maps.css') }}">
 		<link rel="stylesheet" href="{{ asset('css/components/breadcrumbs.css') }}">
 		<link rel="stylesheet" href="{{ asset('css/components/widgets.css') }}">
 		<link rel="stylesheet" href="{{ asset('css/components/sliders.css') }}">
-		<link rel="stylesheet" href="{{ asset('css/components/shop-components-cards.css') }}">
+		<link rel="stylesheet" href="{{ asset('css/components/shop-components-cards.css') }}">--}}
 
 </head>
 <body>

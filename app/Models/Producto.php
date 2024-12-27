@@ -11,7 +11,7 @@ class Producto extends Model
 	protected $table = 'productos';
 	protected $fillable = [
 		'establecimiento_id', 'tipo', 'nombre', 'descripcion',
-		'imagen', 'condiciones', 'activo', 'precio', 'url'
+		'imagen', 'condiciones', 'activo', 'precio','descuento', 'url'
 	];
 
 	//Relaciones
